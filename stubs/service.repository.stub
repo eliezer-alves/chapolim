@@ -1,0 +1,69 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Repositories\Contracts\{{ repositoryInterface }};
+
+class {{ class }}
+{
+    protected ${{ attributeRepository }};
+
+    public function __construct({{ repositoryInterface }} ${{ attributeRepository }})
+    {
+        $this->{{ attributeRepository }} = ${{ attributeRepository }};
+    }
+
+    /**
+     * Service Layer - Get a listing of the resource.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function index()
+    {
+       return $this->{{ attributeRepository }}->all();
+    }
+
+    /**
+     * Service Layer - Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function store($request)
+    {
+        return $this->{{ attributeRepository }}->create($request);
+    }
+
+    /**
+     * Service Layer - Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Support\Collection
+     */
+    public function show($id)
+    {
+        return $this->{{ attributeRepository }}->find($id);
+    }
+
+    /**
+     * Service Layer - Update the specified resource in storage.
+     *
+     * @param  array  $request
+     * @param  int  $id
+     * @return \Illuminate\Support\Collection
+     */
+    public function update($request, $id)
+    {
+        return $this->{{ attributeRepository }}->update($request, $id);
+    }
+
+    /**
+     * Service Layer - Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Support\Collection
+     */
+    public function destroy($id)
+    {
+        return $this->{{ attributeRepository }}->delete($id);
+    }
+}

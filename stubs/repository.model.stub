@@ -1,0 +1,14 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Models\{{ model }};
+use App\Repositories\Contracts\{{ interface }};
+
+class {{ class }} extends AbstractRepository implements {{ interface }}
+{
+    public function __construct({{ model }} $model)
+    {
+        parent::__construct($model);
+    }
+}

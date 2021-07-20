@@ -1,0 +1,9 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Repositories\Contracts\{{ interface }};
+
+class {{ class }} extends AbstractRepository implements {{ interface }}
+{
+}
