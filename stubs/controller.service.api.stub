@@ -30,7 +30,7 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        return $this->service->store($request);
+        return $this->service->store($request->all());
     }
 
     /**
