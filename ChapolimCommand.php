@@ -12,7 +12,7 @@ class ChapolimCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'chapolim:make {name} {--m|model} {--c|controller} {--R|repository} {--S|service} {--r|resource}';
+    protected $signature = 'chapolim:make {name} {--m|model} {--c|controller} {--R|repository} {--S|service} {--a|all} {--r|resource}';
 
     /**
      * The console command description.
@@ -21,10 +21,12 @@ class ChapolimCommand extends Command
      */
     protected $description = 'Generates project scaffold with all layers';
 
+    protected $all;
     protected $model;
     protected $repository;
     protected $service;
     protected $controller;
+    protected $resource;
 
     /**
      * Create a new command instance.
@@ -44,17 +46,27 @@ class ChapolimCommand extends Command
 
     private function hydrator()
     {
-        if($this->option('model')){
+        // dd($this->options());
+        $this->resource = $this->option('resource');
+        if($this->all || !($this->option('model') && $this->option('controller') && $this->option('repository') && $this->option('service'))){
             $this->model = $this->argument('name');
-        }
-        if($this->option('controller')){
             $this->controller = $this->argument('name') . 'Controller';
-        }
-        if($this->option('repository')){
             $this->repository = $this->argument('name') . 'Repository';
-        }
-        if($this->option('service')){
             $this->service = $this->argument('name') . 'Service';
+            $this->all = true;
+        }else{
+            if($this->option('model')){
+                $this->model = $this->argument('name');
+            }
+            if($this->option('controller')){
+                $this->controller = $this->argument('name') . 'Controller';
+            }
+            if($this->option('repository')){
+                $this->repository = $this->argument('name') . 'Repository';
+            }
+            if($this->option('service')){
+                $this->service = $this->argument('name') . 'Service';
+            }
         }
     }
 
@@ -66,29 +78,29 @@ class ChapolimCommand extends Command
     public function handle()
     {
         $this->hydrator();
-        if($this->option('model')){
+        if($this->all || $this->option('model')){
             Artisan::call("make:model", ['name' => $this->model]);
             $this->info('Model created successfully.');
         }
-        if($this->option('controller')){
+        if($this->all || $this->option('controller')){
             Artisan::call("chapolim:controller", [
                 'name' => $this->controller,
-                '-r' => 'default'
+                '-r' => $this->resource
             ]);
             $this->info('Controller created successfully.');
         }
-        if($this->option('repository')){
+        if($this->all || $this->option('repository')){
             Artisan::call("make:repository", [
                 'name' => $this->repository,
                 '-m' => $this->model
             ]);
             $this->info('Repository created successfully.');
         }
-        if($this->option('service')){
+        if($this->all || $this->option('service')){
             Artisan::call("make:service", [
                 'name' => $this->service,
                 '-R' => $this->repository,
-                '-r' => 'default'
+                '-r' => $this->resource
             ]);
             $this->info('Service created successfully.');
         }
