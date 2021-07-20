@@ -12,7 +12,7 @@ class ChapolimCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'chapolim:make {name} {--m|model} {--c|controller} {--R|repository} {--S|service} {--a|all} {--r|resource} {--F|fillable=}';
+    protected $signature = 'chapolim:make {name} {--m|model} {--c|controller} {--R|repository} {--S|service} {--a|all} {--r|resource} {--route} {--F|fillable=}';
 
     /**
      * The console command description.
@@ -27,6 +27,7 @@ class ChapolimCommand extends Command
     protected $service;
     protected $controller;
     protected $resource;
+    protected $route;
     protected $fillable;
 
     /**
@@ -48,8 +49,9 @@ class ChapolimCommand extends Command
     private function hydrator()
     {
         // dd($this->options());
-        $this->resource = $this->option('resource');
         $this->fillable = $this->option('fillable');
+        $this->resource = $this->option('resource');
+        $this->route = $this->option('resource');
         if($this->all || !($this->option('model') && $this->option('controller') && $this->option('repository') && $this->option('service'))){
             $this->model = $this->argument('name');
             $this->controller = $this->argument('name') . 'Controller';
@@ -90,7 +92,8 @@ class ChapolimCommand extends Command
         if($this->all || $this->option('controller')){
             Artisan::call("chapolim:controller", [
                 'name' => $this->controller,
-                '-r' => $this->resource
+                '-r' => $this->resource,
+                '--route' => $this->route
             ]);
             $this->info('Controller created successfully.');
         }
