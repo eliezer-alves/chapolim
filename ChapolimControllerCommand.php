@@ -12,7 +12,7 @@ class ChapolimControllerCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'chapolim:controller {name} {--S|service=} {--r|resource}';
+    protected $signature = 'chapolim:controller {name} {--S|service=} {--route} {--r|resource}';
 
     /**
      * The console command description.
@@ -22,6 +22,7 @@ class ChapolimControllerCommand extends Command
     protected $description = 'Create a new controller class with service layer';
 
     protected $file;
+    protected $routeFile;
     protected $path;
     protected $name;
     protected $namespace;
@@ -48,7 +49,9 @@ class ChapolimControllerCommand extends Command
     {
         $this->name = $this->argument('name');
         $this->namespace = 'App\Http\Controllers';
+        $this->routeFile = base_path('routes/api.php');
         $this->resource = $this->option('resource');
+        $this->route = $this->option('route');
         $this->service = str_replace('Controller', '', $this->option('service') ?? $this->name . 'Service');
         $this->path = app_path("Http/Controllers");
         $this->file = "$this->path/$this->name.php";
@@ -74,6 +77,26 @@ class ChapolimControllerCommand extends Command
     }
 
     /**
+     * Returns the contents of the route file.
+     *
+     * @return void
+     */
+    private function setRouteFileContents()
+    {
+        $prefix = strtolower(preg_replace(["/([A-Z]+)/", "/ ([A-Z]+)([A-Z][a-z])/"], ["-$1", "_$1_$2"], lcfirst($this->name)));
+        $routeDescription = preg_replace(["/([A-Z]+)/", "/ ([A-Z]+)([A-Z][a-z])/"], [" $1", "_$1_$2"], $this->name);
+
+        $routeGroupTemplate = file_get_contents(__DIR__ . './stubs/route-group.stub');
+        $routeGroupContents = str_replace('{{ routeDescription }}', $routeDescription,
+            str_replace('{{ prefix }}', $prefix,
+            str_replace('{{ class }}', $this->name, $routeGroupTemplate)
+        ));
+
+        $template = file_get_contents($this->routeFile);
+        return str_replace("use Illuminate\Support\Facades\Route;\n", "use Illuminate\Support\Facades\Route;\n\nuse $this->namespace\\$this->name;\n", $template) . $routeGroupContents;
+    }
+
+    /**
      * Execute the console command.
      *
      * @return int
@@ -81,7 +104,10 @@ class ChapolimControllerCommand extends Command
     public function handle()
     {
         $this->hydrator();
-        File::put($this->file, $this->setContents());        
+        File::put($this->file, $this->setContents());
+        if($this->route){
+            File::put($this->routeFile, $this->setRouteFileContents());
+        }
 
         $this->info('Controller created successfully.');
         return 0;

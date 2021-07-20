@@ -1,0 +1,21 @@
+
+
+/*
+|--------------------------------------------------------------------------
+| {{ routeDescription }}
+|--------------------------------------------------------------------------
+*/
+Route::group([
+
+    //'middleware' => ['auth:api'],
+    'prefix' => '{{ prefix }}',
+
+], function () {
+
+    Route::get('/', [{{ class }}::class, 'index']);
+    Route::get('/{id}', [{{ class }}::class, 'show']);
+    Route::post('/', [{{ class }}::class, 'store']);
+    Route::put('/{id}', [{{ class }}::class, 'update']);
+    Route::delete('/{id}', [{{ class }}::class, 'destroy']);
+
+});

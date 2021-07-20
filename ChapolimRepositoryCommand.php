@@ -26,7 +26,7 @@ class ChapolimRepositoryCommand extends Command
     protected $interface;
     protected $model;
     protected $file;
-    protected $fileInterface;
+    protected $interfaceFile;
     protected $path;
     protected $contractsPath;
 
@@ -55,7 +55,7 @@ class ChapolimRepositoryCommand extends Command
         $this->path = app_path('Repositories/' . ($this->option('path') ?? 'Eloquent'));
         $this->contractsPath = app_path('Repositories\Contracts');
         $this->file = "$this->path/$this->class.php";
-        $this->fileInterface = "$this->contractsPath/$this->interface.php";
+        $this->interfaceFile = "$this->contractsPath/$this->interface.php";
     }
 
     /**
@@ -82,7 +82,7 @@ class ChapolimRepositoryCommand extends Command
      *
      * @return void
      */
-    private function setContentsFileInterface()
+    private function setContentsInterfaceFile()
     {
         $template = file_get_contents(__DIR__ . './stubs/repository-interface.stub');
 
@@ -146,7 +146,7 @@ class ChapolimRepositoryCommand extends Command
         }
 
         File::put($this->file, $this->setContents());
-        File::put($this->fileInterface, $this->setContentsFileInterface());
+        File::put($this->interfaceFile, $this->setContentsInterfaceFile());
         $this->register();
 
         $this->info('Repository created successfully.');
