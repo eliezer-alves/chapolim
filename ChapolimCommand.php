@@ -90,14 +90,14 @@ class ChapolimCommand extends Command
             $this->info('Controller created successfully.');
         }
         if($this->all || $this->option('repository')){
-            Artisan::call("make:repository", [
+            Artisan::call("chapolim:repository", [
                 'name' => $this->repository,
                 '-m' => $this->model
             ]);
             $this->info('Repository created successfully.');
         }
         if($this->all || $this->option('service')){
-            Artisan::call("make:service", [
+            Artisan::call("chapolim:service", [
                 'name' => $this->service,
                 '-R' => $this->repository,
                 '-r' => $this->resource

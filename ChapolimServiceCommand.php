@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class ServiceCommand extends Command
+class ChapolimServiceCommand extends Command
 {
     /**
      * The name and signature of the console command.

@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class RepositoryCommand extends Command
+class ChapolimRepositoryCommand extends Command
 {
     /**
      * The name and signature of the console command.
