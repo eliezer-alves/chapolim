@@ -96,6 +96,9 @@ class ChapolimCommand extends Command
                 '--route' => $this->route
             ]);
             $this->info('Controller created successfully.');
+            if($this->route){
+                $this->info('Route group created successfully.');
+            }
         }
         if($this->all || $this->option('repository')){
             Artisan::call("chapolim:repository", [

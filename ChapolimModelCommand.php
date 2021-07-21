@@ -68,7 +68,7 @@ class ChapolimModelCommand extends Command
         array_map(function ($column){
             $column = explode(',', $column);
 
-            $this->textFillable .= "\n\t\t'$column[0]',";
+            $this->textFillable .= "\n\t\t\t'$column[0]',";
 
             array_push($this->fillable, [
                 'column' => $column[0],

@@ -105,7 +105,7 @@ class ChapolimControllerCommand extends Command
     {
         $this->hydrator();
         File::put($this->file, $this->setContents());
-        $this->info('Controller created successfully.');
+        $this->info('Controller created successfully.');        
         if($this->route){
             File::put($this->routeFile, $this->setRouteFileContents());
             $this->info('Route group created successfully.');
