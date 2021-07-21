@@ -137,7 +137,10 @@ class ChapolimRepositoryCommand extends Command
         }
 
         if(!File::exists($this->path)){
-            File::makeDirectory($this->path, 0755, true);
+            File::makeDirectory($this->path, 0755, true);            
+        }
+
+        if(!File::exists("$this->contractsPath/AbstractRepositoryInterface.php")){
             File::put("$this->contractsPath/AbstractRepositoryInterface.php", file_get_contents(__DIR__ . './stubs/abstract-repository-interface.stub'));
         }
 

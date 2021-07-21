@@ -93,7 +93,7 @@ class ChapolimControllerCommand extends Command
         ));
 
         $template = file_get_contents($this->routeFile);
-        return str_replace("use Illuminate\Support\Facades\Route;\n", "use Illuminate\Support\Facades\Route;\n\nuse $this->namespace\\$this->name;\n", $template) . $routeGroupContents;
+        return str_replace("use Illuminate\Support\Facades\Route;", "use Illuminate\Support\Facades\Route;\nuse $this->namespace\\$this->name;", str_replace("use $this->namespace\\$this->name;", '', str_replace($routeGroupContents, '', $template))) . $routeGroupContents;
     }
 
     /**
@@ -105,11 +105,11 @@ class ChapolimControllerCommand extends Command
     {
         $this->hydrator();
         File::put($this->file, $this->setContents());
+        $this->info('Controller created successfully.');
         if($this->route){
             File::put($this->routeFile, $this->setRouteFileContents());
+            $this->info('Route group created successfully.');
         }
-
-        $this->info('Controller created successfully.');
         return 0;
     }
 }
