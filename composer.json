@@ -1,7 +1,7 @@
 {
     "name": "eliezer/chapolim",
     "description": "A simple package to manage the creation of a structure composed of the service and repository layers in a Laravel application",
-    "type": "composer-plogin\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~u\u001b[F\u001b[B",
+    "type": "library,
     "license": "MIT",
     "authors": [
         {
