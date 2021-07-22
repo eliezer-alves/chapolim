@@ -19,7 +19,7 @@ class ChapolimModelCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a new model class with service layer';
+    protected $description = 'Create a new model class with table attribute and fillable attribute';
 
     protected $file;
     protected $path;
