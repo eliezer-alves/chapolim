@@ -74,7 +74,8 @@ class ChapolimModelCommand extends Command
                 'column' => $column[0],
                 'type' => $column[1] ?? NULL,
             ]);
-        }, $columns);
+        }, $columns);        
+        $this->textFillable = substr($this->textFillable, 0, -1);
     }
 
     /**

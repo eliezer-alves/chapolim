@@ -11,6 +11,7 @@ class {{ class }} extends Model
 
     protected $table = '{{ table }}';
 
-    protected $fillable = [{{ fillableColumns }}
+    protected $fillable = [
+{{ fillableColumns }}
     ];
 }
