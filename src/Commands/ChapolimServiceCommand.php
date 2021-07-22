@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Eliezer\Chapolim\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -63,15 +63,15 @@ class ChapolimServiceCommand extends Command
     {
         if($this->resource){
             if($this->repositoryClass){
-                $template = file_get_contents(__DIR__ . './stubs/service.repository.stub');
+                $template = file_get_contents(__DIR__ . '/stubs/service.repository.stub');
             }else{
-                $template = file_get_contents(__DIR__ . './stubs/service.stub');
+                $template = file_get_contents(__DIR__ . '/stubs/service.stub');
             }
         }else{
             if($this->repositoryClass){
-                $template = file_get_contents(__DIR__ . './stubs/service.repository.plain.stub');
+                $template = file_get_contents(__DIR__ . '/stubs/service.repository.plain.stub');
             }else{
-                $template = file_get_contents(__DIR__ . './stubs/service.plain.stub');
+                $template = file_get_contents(__DIR__ . '/stubs/service.plain.stub');
             }
         }
 

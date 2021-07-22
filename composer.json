@@ -9,10 +9,17 @@
             "email": "eliezer.c.alves2015@gmail.com"
         }
     ],
-    "require": {},    
+    "require": {},
     "autoload": {
         "psr-4": {
             "Eliezer\\Chapolim\\": "src/"
+        }
+    },    
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Eliezer\\Chapolim\\ArtisanCommandsServiceProvider"
+            ]
         }
     }
 }
