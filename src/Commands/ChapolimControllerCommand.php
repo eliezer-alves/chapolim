@@ -12,7 +12,7 @@ class ChapolimControllerCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'chapolim:controller {name} {--S|service=} {--route} {--r|resource}';
+    protected $signature = 'chapolim:make-controller {name} {--S|service=} {--route} {--r|resource}';
 
     /**
      * The console command description.
