@@ -12,7 +12,7 @@ class ChapolimRepositoryCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'chapolim:repository {name} {--m|model=} {--p|path=}';
+    protected $signature = 'chapolim:make-repository {name} {--m|model=} {--p|path=}';
 
     /**
      * The console command description.

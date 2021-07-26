@@ -15,10 +15,10 @@ Este projeto tem como objetivo fornecer alguns comandos adicionais à interface 
   <li>
     <a href="#uso"><b><span style="color: red">#</span> Uso</b></a>
     <ul style="list-style: none">
-      <li><a href="#chapolimrepository"><span style="color: red">#</span> chapolim:repository</a></li>
-      <li><a href="#chapolimservice"><span style="color: red">#</span> chapolim:service</a></li>
-      <li><a href="#chapolimmodel"><span style="color: red">#</span> chapolim:model</a></li>
-      <li><a href="#chapolimcontroller"><span style="color: red">#</span> chapolim:controller</a></li>
+      <li><a href="#chapolimrepository"><span style="color: red">#</span> chapolim:make-repository</a></li>
+      <li><a href="#chapolimservice"><span style="color: red">#</span> chapolim:make-service</a></li>
+      <li><a href="#chapolimmodel"><span style="color: red">#</span> chapolim:make-model</a></li>
+      <li><a href="#chapolimcontroller"><span style="color: red">#</span> chapolim:make-controller</a></li>
       <li><a href="#chapolimmake"><span style="color: red">#</span> chapolim:make</a></li>
     </ul>
   </li>
@@ -60,19 +60,19 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
     ...
     chapolim
-      chapolim:controller  Create a new controller class with service layer
       chapolim:make        Generates project scaffold with all layers
-      chapolim:model       Create a new model class with table attribute and fillable attribute
-      chapolim:repository  Create a new repository class
-      chapolim:service     Create a new service class
+      chapolim:make-controller  Create a new controller class with service layer
+      chapolim:make-model       Create a new model class with table attribute and fillable attribute
+      chapolim:make-repository  Create a new repository class
+      chapolim:make-service     Create a new service class
     ...
   
   Dessa forma segue a descrição de cada comando.
 
-  ### chapolim:repository
+  ### chapolim:make-repository
   <a href="#sumário">Sumário</a><br/>
-  As classes geradas como o comando `chapolim:repository` serão criadas no diretório `app/Repositories/Eloquent`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando. Ainda assim, um outro diretório será criado `app/Repositories/Contracts`, esse diretório conterá as classes de interface das classes de repositório, pois estas nunca são injetadas diretamente.
-  Ademais, a primeira vez o o comando `chapolim:repository` for rodado será feito um processo de scafolding onde, além de serem criados os diretórios supracitados, serão criadas as classes `AbstractRepository` (contendo todos os métodos padrões de uma classe de repositório a qual será estendida por todas as outras classes de repositório), a sua interface `AbstractRepositoryInterface` e finalmente a classe `RepositoryServiceProvider`, essa última será a classe responsável por informar à aplicação a relação entre as classes de repositório e suas interfaces, sendo que é por conta disso que será possível utilizar as classes por meio das suas interfaces.
+  As classes geradas como o comando `chapolim:make-repository` serão criadas no diretório `app/Repositories/Eloquent`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando. Ainda assim, um outro diretório será criado `app/Repositories/Contracts`, esse diretório conterá as classes de interface das classes de repositório, pois estas nunca são injetadas diretamente.
+  Ademais, a primeira vez o o comando `chapolim:make-repository` for rodado será feito um processo de scafolding onde, além de serem criados os diretórios supracitados, serão criadas as classes `AbstractRepository` (contendo todos os métodos padrões de uma classe de repositório a qual será estendida por todas as outras classes de repositório), a sua interface `AbstractRepositoryInterface` e finalmente a classe `RepositoryServiceProvider`, essa última será a classe responsável por informar à aplicação a relação entre as classes de repositório e suas interfaces, sendo que é por conta disso que será possível utilizar as classes por meio das suas interfaces.
   Assim, toda vez que for criada uma nova classe de repositório será também criada a sua interfece e a relação entre as duas será provida à aplicação por meio da `RepositoryServiceProvider`, sendo que isto é feito varrendo o diretório `app/Repositories/Eloquent` e reescrevendo o arquivo com as classes presentes nesse diretório. Ademais, é importante frizar que a classe `RepositoryServiceProvider` é automaticamente inserida em `config/app.php` mas pode ser que isso não aconteça então é importante validar se ela se encontra no <i>array</i> de <i>providers</i>.
 
   Segue os detalhes do comando:
@@ -81,7 +81,7 @@ Os comandos `chapolim` serão listados da seguinte forma:
   Cria uma nova classe repositório
 
   <b>Formato:</b>
-  chapolim:repository [options] [--] <name>
+  chapolim:make-repository [options] [--] <name>
 
   <b>Argumentos:</b>
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;O nome da Classe</p>
@@ -90,16 +90,16 @@ Os comandos `chapolim` serão listados da seguinte forma:
     <p><i>-m, --model[=Model]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gera uma classe de repositório para uma <i>Model</i> fornecida.</p>
     <p><i>-p, --path[=Path]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Gera uma classe de repositório em um diretório fornecido a partir de app/Repositories.</p>
 
-  ### chapolim:service
+  ### chapolim:make-service
   <a href="#sumário">Sumário</a><br/>
-  As classes geradas como o comando `chapolim:service` serão criadas no diretório `app/Services`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando.
+  As classes geradas como o comando `chapolim:make-service` serão criadas no diretório `app/Services`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando.
   Segue os detalhes do comando:
 
   <b>Descrição:</b>
   Cria uma nova classe de serviço
 
   <b>Formato:</b>
-  chapolim:service [options] [--] <name>
+  chapolim:make-service [options] [--] <name>
 
   <b>Argumentos:</b>
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
@@ -108,16 +108,16 @@ Os comandos `chapolim` serão listados da seguinte forma:
     <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Gera uma classe de serviço com métodos padrões.</p>
     <p><i>-R, --repository[=Repository]</i>&emsp;&emsp;&emsp;Gera uma classe de serviço injetando uma classe de repositório.</p>
 
-  ### chapolim:model
+  ### chapolim:make-model
   <a href="#sumário">Sumário</a><br/>
-  Por padrão o Artisan já possui comandos para a criação dos modelos, no entanto nesses comandos não é possível a especificação do <i>fillable</i> da classe, ou seja, não é possível especificar as colunas da tabela cujo o modelo representa. Dessa forma, o chapolim possui um comando para gerar os modelos com essa propriedade: `chapolim:model --fillable='username|email|password'`. Dessa maneira, como você pode notar você pode especificar seu <i>fillable</i> por meio da <i>option</i> `--fillable`.
+  Por padrão o Artisan já possui comandos para a criação dos modelos, no entanto nesses comandos não é possível a especificação do <i>fillable</i> da classe, ou seja, não é possível especificar as colunas da tabela cujo o modelo representa. Dessa forma, o chapolim possui um comando para gerar os modelos com essa propriedade: `chapolim:make-model --fillable='username|email|password'`. Dessa maneira, como você pode notar você pode especificar seu <i>fillable</i> por meio da <i>option</i> `--fillable`.
   Segue os detalhes do comando:
 
   <b>Descrição:</b>
   Cria uma nova classe de modelo
 
   <b>Formato:</b>
-  chapolim:model [options] [--] <name>
+  chapolim:make-model [options] [--] <name>
 
   <b>Argumentos:</b>
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
@@ -125,16 +125,16 @@ Os comandos `chapolim` serão listados da seguinte forma:
   <b>Options:</b>
     <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;Gera uma classe de modelo com o atributo <i>fillable</i> preenchido.</p>
 
-  ### chapolim:controller
+  ### chapolim:make-controller
   <a href="#sumário">Sumário</a><br/>
-  Da mesma forma que para os modelos, o Artisan já possui comandos para a criação dos controladores, entretanto não existe nesses comandos a opção de injetar uma classe de serviço. Dessa forma, o chapolim possui um comando para gerar controladores com classes de serviço: `chapolim:controller`. Assim, as classes geradas como o comando `chapolim:controller` serão criadas no diretório `app/Http/Controllers` e já virão com uma classe de serviço injetada, sendo que o nome desta pode ser especificado por meio da <i>option</i> `--service`. Nesse contexto, caso a classe de serviço não for especificada será injetada uma seguindo o pdrão do nome do controlador. Ademais, é possível gerar automáticamente um grupo de rotas do controlador em `app/routes/api.php` sendo que para isto basta especificar a <i>option</i> `--route`.
+  Da mesma forma que para os modelos, o Artisan já possui comandos para a criação dos controladores, entretanto não existe nesses comandos a opção de injetar uma classe de serviço. Dessa forma, o chapolim possui um comando para gerar controladores com classes de serviço: `chapolim:make-controller`. Assim, as classes geradas como o comando `chapolim:make-controller` serão criadas no diretório `app/Http/Controllers` e já virão com uma classe de serviço injetada, sendo que o nome desta pode ser especificado por meio da <i>option</i> `--service`. Nesse contexto, caso a classe de serviço não for especificada será injetada uma seguindo o pdrão do nome do controlador. Ademais, é possível gerar automáticamente um grupo de rotas do controlador em `app/routes/api.php` sendo que para isto basta especificar a <i>option</i> `--route`.
   Segue os detalhes do comando:
 
   <b>Descrição:</b>
   Cria uma nova classe de controlador injetando uma classe de serviço
 
   <b>Formato:</b>
-  chapolim:controller [options] [--] <name>
+  chapolim:make-controller [options] [--] <name>
 
   <b>Argumentos:</b>
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>

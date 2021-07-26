@@ -12,7 +12,7 @@ class ChapolimModelCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'chapolim:model {name} {--F|fillable=}';
+    protected $signature = 'chapolim:make-model {name} {--F|fillable=}';
 
     /**
      * The console command description.
