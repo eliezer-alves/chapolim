@@ -170,3 +170,4 @@ Os comandos `chapolim` serão listados da seguinte forma:
     <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Gera as classes Controller e Service (caso especificadas nas options) com métodos padrões.</p>
     <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Gera um grupo de rotas para o controlador em `app/routes/api.php`.</p>
     <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;Gera a classe de modelo com o atributo <i>fillable</i> preenchido.</p>
+
