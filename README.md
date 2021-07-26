@@ -15,10 +15,10 @@ Este projeto tem como objetivo fornecer alguns comandos adicionais à interface 
   <li>
     <a href="#uso"><b><span style="color: red">#</span> Uso</b></a>
     <ul style="list-style: none">
-      <li><a href="#chapolimrepository"><span style="color: red">#</span> chapolim:make-repository</a></li>
-      <li><a href="#chapolimservice"><span style="color: red">#</span> chapolim:make-service</a></li>
-      <li><a href="#chapolimmodel"><span style="color: red">#</span> chapolim:make-model</a></li>
-      <li><a href="#chapolimcontroller"><span style="color: red">#</span> chapolim:make-controller</a></li>
+      <li><a href="#chapolimmake-repository"><span style="color: red">#</span> chapolim:make-repository</a></li>
+      <li><a href="#chapolimmake-service"><span style="color: red">#</span> chapolim:make-service</a></li>
+      <li><a href="#chapolimmake-model"><span style="color: red">#</span> chapolim:make-model</a></li>
+      <li><a href="#chapolimmake-controller"><span style="color: red">#</span> chapolim:make-controller</a></li>
       <li><a href="#chapolimmake"><span style="color: red">#</span> chapolim:make</a></li>
     </ul>
   </li>
