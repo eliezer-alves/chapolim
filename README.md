@@ -3,7 +3,7 @@
 </p>
     
 # Chapolim
-Este projeto tem como objetivo fornecer alguns comandos adicionais à interface de linha de comando do Laravel, o Artisan, para manipular a estrutura das camadas de Serviço e Reopositório: Service Layer / Repository Pattern.
+Este projeto tem como objetivo fornecer alguns comandos adicionais à interface de linha de comando do Laravel, o Artisan, para manipular a estrutura de um projeto que utiliza as camadas de Serviço e Reopositório: Service Layer / Repository Pattern.
 
 ## Sumário
 <ol style="list-style: none"  style="color: black">
