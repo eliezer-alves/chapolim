@@ -21,6 +21,7 @@ class ArtisanCommandsServiceProvider extends ServiceProvider
                 Commands\ChapolimModelCommand::class,
                 Commands\ChapolimRepositoryCommand::class,
                 Commands\ChapolimServiceCommand::class,
+                Commands\MigrationMakeCommand::class,
             ]);
         }
     }
