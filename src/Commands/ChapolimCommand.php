@@ -101,7 +101,7 @@ class ChapolimCommand extends Command
             }
         }
         if($this->all || $this->option('repository')){
-            Artisan::call("chapolim:repository", [
+            Artisan::call("chapolim:make-repository", [
                 'name' => $this->repository,
                 '-m' => $this->model
             ]);
