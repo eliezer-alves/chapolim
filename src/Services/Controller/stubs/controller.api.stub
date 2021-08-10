@@ -3,15 +3,9 @@
 namespace {{ namespace }};
 
 use Illuminate\Http\Request;
-use App\Services\{{ service }};
 
-class {{ class }} extends Controller
+class {{ class }} extends {{ parentClass }}
 {
-    public function __construct({{ service }} $service)
-    {
-        parent::__construct($service);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +13,7 @@ class {{ class }} extends Controller
      */
     public function index()
     {
-        return $this->service->index();
+        //
     }
 
     /**
@@ -30,7 +24,7 @@ class {{ class }} extends Controller
      */
     public function store(Request $request)
     {
-        return $this->service->store($request->all());
+        //
     }
 
     /**
@@ -41,7 +35,7 @@ class {{ class }} extends Controller
      */
     public function show($id)
     {
-        return $this->service->show($id);
+        //
     }
 
     /**
@@ -53,7 +47,7 @@ class {{ class }} extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->service->update($request->all(), $id);
+        //
     }
 
     /**
@@ -64,6 +58,6 @@ class {{ class }} extends Controller
      */
     public function destroy($id)
     {
-        return $this->service->destroy($id);
+        //
     }
 }

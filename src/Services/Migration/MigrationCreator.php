@@ -3,6 +3,7 @@
 namespace Eliezer\Chapolim\Services\Migration;
 
 use Eliezer\Chapolim\Services\Creator;
+use InvalidArgumentException;
 
 class MigrationCreator extends Creator
 {
@@ -21,6 +22,30 @@ class MigrationCreator extends Creator
         );
 
         return $path;
+    }
+
+    /**
+     * Make sure the class does not already exist.
+     *
+     * @param  string  $name
+     * @param  string  $path
+     * @return void
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function ensureClassDoesntAlreadyExist($name, $path = null)
+    {
+        if (! empty($path)) {
+            $files = $this->files->glob($path.'/*.php');
+
+            foreach ($files as $file) {
+                $this->files->requireOnce($file);
+            }
+        }
+
+        if (class_exists($className = $this->getClassName($name))) {
+            throw new InvalidArgumentException("A {$className} class already exists.");
+        }
     }
 
     /**

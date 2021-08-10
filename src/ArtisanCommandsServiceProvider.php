@@ -17,10 +17,11 @@ class ArtisanCommandsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 Commands\ChapolimCommand::class,
-                Commands\ChapolimControllerCommand::class,
+                // Commands\ChapolimControllerCommand::class,
                 Commands\ChapolimModelCommand::class,
                 Commands\ChapolimRepositoryCommand::class,
                 Commands\ChapolimServiceCommand::class,
+                Commands\ControllerMakeCommand::class,
                 Commands\MigrationMakeCommand::class,
             ]);
         }

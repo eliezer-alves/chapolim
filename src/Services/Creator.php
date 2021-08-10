@@ -35,11 +35,10 @@ class Creator
 
             foreach ($files as $file) {
                 $this->files->requireOnce($file);
+                if(basename($file, '.php') == ($className = $this->getClassName($name))){
+                    throw new InvalidArgumentException("A {$className} class already exists.");        
+                }
             }
-        }
-
-        if (class_exists($className = $this->getClassName($name))) {
-            throw new InvalidArgumentException("A {$className} class already exists.");
         }
     }
 
@@ -53,6 +52,7 @@ class Creator
     {
         return Str::studly($name);
     }
+
     /**
      * Get the full path to the class.
      *

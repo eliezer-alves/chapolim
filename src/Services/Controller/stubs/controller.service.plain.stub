@@ -5,10 +5,12 @@ namespace {{ namespace }};
 use Illuminate\Http\Request;
 use App\Services\{{ service }};
 
-class {{ class }} extends Controller
+class {{ class }} extends {{ parentClass }}
 {
+    protected $service;
+    
     public function __construct({{ service }} $service)
     {
-        parent::__construct($service);
+        $this->service = $service;
     }
 }
