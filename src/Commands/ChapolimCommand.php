@@ -83,7 +83,7 @@ class ChapolimCommand extends Command
     {
         $this->hydrator();
         if($this->all || $this->option('model')){
-            Artisan::call("chapolim:model", [
+            Artisan::call("chapolim:make-model", [
                 'name' => $this->model,
                 '-F' => $this->fillable
             ]);
