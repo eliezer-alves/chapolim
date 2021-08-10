@@ -90,7 +90,7 @@ class ChapolimCommand extends Command
             $this->info('Model created successfully.');
         }
         if($this->all || $this->option('controller')){
-            Artisan::call("chapolim:controller", [
+            Artisan::call("chapolim:make-controller", [
                 'name' => $this->controller,
                 '-r' => $this->resource,
                 '--route' => $this->route
