@@ -108,7 +108,7 @@ class ChapolimCommand extends Command
             $this->info('Repository created successfully.');
         }
         if($this->all || $this->option('service')){
-            Artisan::call("chapolim:service", [
+            Artisan::call("chapolim:make-service", [
                 'name' => $this->service,
                 '-R' => $this->repository,
                 '-r' => $this->resource
