@@ -57,18 +57,18 @@ class ControllerCreator extends Creator
     protected function populateStub($name, $module, $stub, $service)
     {
         $stub = str_replace(
-            ['DummyClass', '{{ class }}', '{{class}}'],
-            $this->getClassName($name), $stub
-        );
-        
-        $stub = str_replace(
-            ['ParentClass', '{{ parentClass }}', '{{parentClass}}'],
-            $this->getParentClass($module), $stub
+            ['DummyNamespace', '{{ namespace }}', '{{namespace}}'],
+            $this->getNamespace($module), $stub
         );
 
         $stub = str_replace(
-            ['DummyNamespace', '{{ namespace }}', '{{namespace}}'],
-            $this->getNamespace($module), $stub
+            ['DummyClass', '{{ class }}', '{{class}}'],
+            $this->getClassName($name), $stub
+        );
+
+        $stub = str_replace(
+            ['DummyParentClass', '{{ parentClass }}', '{{parentClass}}'],
+            $this->getParentClass($module), $stub
         );
 
         if (! is_null($service)) {
@@ -112,7 +112,7 @@ class ControllerCreator extends Creator
      */
     protected function getControllerPath($module)
     {
-        if($this->module) {
+        if($module) {
             return base_path('modules/' . $module . '/Http/Controllers');
         }
 

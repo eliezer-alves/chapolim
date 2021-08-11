@@ -18,11 +18,12 @@ class ArtisanCommandsServiceProvider extends ServiceProvider
             $this->commands([
                 Commands\ChapolimCommand::class,
                 // Commands\ChapolimControllerCommand::class,
-                Commands\ChapolimModelCommand::class,
+                // Commands\ChapolimModelCommand::class,
                 Commands\ChapolimRepositoryCommand::class,
                 Commands\ChapolimServiceCommand::class,
                 Commands\ControllerMakeCommand::class,
                 Commands\MigrationMakeCommand::class,
+                Commands\ModelMakeCommand::class,
             ]);
         }
     }

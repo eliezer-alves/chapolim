@@ -117,7 +117,7 @@ class MigrationCreator extends Creator
      */
     protected function getMigrationPath($module)
     {
-        if($this->module){
+        if($module){
             return base_path('modules/' . $module . '/Database/migrations');
         }
 

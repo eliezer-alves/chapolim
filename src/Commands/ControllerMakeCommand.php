@@ -4,7 +4,6 @@ namespace Eliezer\Chapolim\Commands;
 
 use Eliezer\Chapolim\Services\Controller\ControllerCreator;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class ControllerMakeCommand extends Command
 {
@@ -15,7 +14,7 @@ class ControllerMakeCommand extends Command
      */
     protected $signature = 'chapolim:make-controller
         {name : The name of the controller.}
-        {--module= : The migration controller.}
+        {--module= : The controller module.}
         {--S|service= : The service to be injected into the controller.}
         {--route : Generate controller api routes.}
         {--r|resource : Generate a resource controller class.}';
