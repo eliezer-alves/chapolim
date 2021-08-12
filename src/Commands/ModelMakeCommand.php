@@ -14,7 +14,7 @@ class ModelMakeCommand extends Command
      */
     protected $signature = 'chapolim:make-model
         {name : The name of the model.}
-        {--module= : The model module.}
+        {--module= : The application module.}
         {--F|fillable= : The fillable attribute of the model.}';
 
     /**
@@ -25,7 +25,7 @@ class ModelMakeCommand extends Command
     protected $description = 'Create a new model';
 
     /**
-     * The migration creator instance.
+     * The model creator instance.
      *
      * @var Eliezer\Chapolim\Services\Model\ModelCreator
      */

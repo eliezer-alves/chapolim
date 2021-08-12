@@ -10,12 +10,11 @@ class ModelCreator extends Creator
 
     public function create($name, $module = null, $fillable = null)
     {
-        $this->ensureClassDoesntAlreadyExist($name, $this->getmodelPath($module));
+        $this->ensureClassDoesntAlreadyExist($name, $this->getModelPath($module));
         
         $fillable = $this->makeFillable($fillable);
-        // dd($fillable);
         $stub = $this->getStub($fillable);
-        $path = $this->getPath($name, $this->getmodelPath($module));
+        $path = $this->getPath($name, $this->getModelPath($module));
 
         $this->files->ensureDirectoryExists(dirname($path));
 
@@ -107,9 +106,9 @@ class ModelCreator extends Creator
      * @param  string  $path
      * @return string
      */
-    protected function getmodelPath($module)
+    protected function getModelPath($module)
     {
-        if($module) {
+        if(! is_null($module)) {
             return base_path('modules/Models');
         }
 

@@ -14,7 +14,7 @@ class ServiceMakeCommand extends Command
      */
     protected $signature = 'chapolim:make-service
         {name : The name of the service.}
-        {--module= : The service module.}
+        {--module= : The application module.}
         {--R|repository= : The repository to be injected into the service.}
         {--r|resource : Generate a resource service class.}';
 
@@ -26,7 +26,7 @@ class ServiceMakeCommand extends Command
     protected $description = 'Create a new service';
 
     /**
-     * The migration creator instance.
+     * The repository creator instance.
      *
      * @var Eliezer\Chapolim\Services\Service\ServiceCreator
      */

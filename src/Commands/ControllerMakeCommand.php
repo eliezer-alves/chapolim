@@ -14,7 +14,7 @@ class ControllerMakeCommand extends Command
      */
     protected $signature = 'chapolim:make-controller
         {name : The name of the controller.}
-        {--module= : The controller module.}
+        {--module= : The application module.}
         {--S|service= : The service to be injected into the controller.}
         {--route : Generate controller api routes.}
         {--r|resource : Generate a resource controller class.}';
@@ -27,7 +27,7 @@ class ControllerMakeCommand extends Command
     protected $description = 'Create a new controller';
 
     /**
-     * The migration creator instance.
+     * The controller creator instance.
      *
      * @var Eliezer\Chapolim\Services\Controller\ControllerCreator
      */

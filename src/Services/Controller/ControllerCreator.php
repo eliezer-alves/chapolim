@@ -112,7 +112,7 @@ class ControllerCreator extends Creator
      */
     protected function getControllerPath($module)
     {
-        if($module) {
+        if(! is_null($module)) {
             return base_path('modules/' . $module . '/Http/Controllers');
         }
 

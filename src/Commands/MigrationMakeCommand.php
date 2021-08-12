@@ -16,7 +16,7 @@ class MigrationMakeCommand extends Command
      */
     protected $signature = 'chapolim:make-migration
         {name : The name of the migration.}
-        {--module= : The migration module.}
+        {--module= : The application module.}
         {--create= : The table to be created.}
         {--table= : The table to migrate.}
         {--columns= : Table columns to migrate.}';

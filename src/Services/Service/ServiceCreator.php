@@ -134,7 +134,7 @@ class ServiceCreator extends Creator
      */
     protected function getServicePath($module)
     {
-        if($module) {
+        if(! is_null($module)) {
             return base_path('modules/' . $module . '/Services');
         }
 
