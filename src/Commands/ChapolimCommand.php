@@ -52,23 +52,23 @@ class ChapolimCommand extends Command
         $this->fillable = $this->option('fillable');
         $this->resource = $this->option('resource');
         $this->route = $this->option('resource');
-        if($this->all || ($this->option('model') && $this->option('controller') && $this->option('repository') && $this->option('service'))){
+        if ($this->all || ($this->option('model') && $this->option('controller') && $this->option('repository') && $this->option('service'))) {
             $this->model = $this->argument('name');
             $this->controller = $this->argument('name') . 'Controller';
             $this->repository = $this->argument('name') . 'Repository';
             $this->service = $this->argument('name') . 'Service';
             $this->all = true;
-        }else{
-            if($this->option('model')){
+        } else {
+            if ($this->option('model')) {
                 $this->model = $this->argument('name');
             }
-            if($this->option('controller')){
+            if ($this->option('controller')) {
                 $this->controller = $this->argument('name') . 'Controller';
             }
-            if($this->option('repository')){
+            if ($this->option('repository')) {
                 $this->repository = $this->argument('name') . 'Repository';
             }
-            if($this->option('service')){
+            if ($this->option('service')) {
                 $this->service = $this->argument('name') . 'Service';
             }
         }
@@ -82,32 +82,32 @@ class ChapolimCommand extends Command
     public function handle()
     {
         $this->hydrator();
-        if($this->all || $this->option('model')){
+        if ($this->all || $this->option('model')) {
             Artisan::call("chapolim:model", [
                 'name' => $this->model,
                 '-F' => $this->fillable
             ]);
             $this->info('Model created successfully.');
         }
-        if($this->all || $this->option('controller')){
+        if ($this->all || $this->option('controller')) {
             Artisan::call("chapolim:controller", [
                 'name' => $this->controller,
                 '-r' => $this->resource,
                 '--route' => $this->route
             ]);
             $this->info('Controller created successfully.');
-            if($this->route){
+            if ($this->route) {
                 $this->info('Route group created successfully.');
             }
         }
-        if($this->all || $this->option('repository')){
+        if ($this->all || $this->option('repository')) {
             Artisan::call("chapolim:repository", [
                 'name' => $this->repository,
                 '-m' => $this->model
             ]);
             $this->info('Repository created successfully.');
         }
-        if($this->all || $this->option('service')){
+        if ($this->all || $this->option('service')) {
             Artisan::call("chapolim:service", [
                 'name' => $this->service,
                 '-R' => $this->repository,

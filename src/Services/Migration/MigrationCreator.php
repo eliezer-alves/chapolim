@@ -8,9 +8,10 @@ use InvalidArgumentException;
 class MigrationCreator extends Creator
 {
 
-    public function create($name, $module = null, $table = null, $create = false)
+    public function create($name, $module = null, $table = null, $create = false, $force = false)
     {
-        $this->ensureClassDoesntAlreadyExist($name, $this->getMigrationPath($module));
+        if (! $force)
+            $this->ensureClassDoesntAlreadyExist($name, $this->getMigrationPath($module));
         
         $stub = $this->getStub($table, $create);        
         $path = $this->getPath($name, $this->getMigrationPath($module));
@@ -117,7 +118,7 @@ class MigrationCreator extends Creator
      */
     protected function getMigrationPath($module)
     {
-        if(! is_null($module)){
+        if (! is_null($module)) {
             return base_path('modules/' . $module . '/Database/migrations');
         }
 

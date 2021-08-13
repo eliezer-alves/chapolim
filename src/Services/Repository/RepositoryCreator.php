@@ -8,10 +8,12 @@ use Illuminate\Support\Str;
 class RepositoryCreator extends Creator
 {
 
-    public function create($name, $module = null, $model = null, $ormFolder = 'Eloquent')
+    public function create($name, $module = null, $model = null, $ormFolder = null, $force = false)
     {
         $ormFolder = Str::studly($ormFolder ?? 'Eloquent');
-        $this->ensureClassDoesntAlreadyExist($name, $this->getRepositoryPath($module, $ormFolder));        
+        
+        if (! $force)
+            $this->ensureClassDoesntAlreadyExist($name, $this->getRepositoryPath($module, $ormFolder));        
         
         $stub = $this->getStub($model);
         $path = $this->getPath($name, $this->getRepositoryPath($module, $ormFolder));
@@ -51,11 +53,11 @@ class RepositoryCreator extends Creator
      * @param  string|null  $table
      * @return string
      */
-    protected function populateStub($name, $module, $stub, $model, $ormBasePath)
+    protected function populateStub($name, $module, $stub, $model, $ormFolder)
     {
         $stub = str_replace(
             ['DummyNamespace', '{{ namespace }}', '{{namespace}}'],
-            $this->getNamespace($module, $ormBasePath), $stub
+            $this->getNamespace($module, $ormFolder), $stub
         );
 
         $stub = str_replace(
@@ -79,16 +81,16 @@ class RepositoryCreator extends Creator
     }
 
     /**
-     * Get the class name of a class name.
+     * Get the class namespace.
      *
      * @param  string  $name
      * @return string
      */
-    protected function getNamespace($module, $ormBasePath)
+    protected function getNamespace($module, $ormFolder)
     {
         return is_null($module)
-            ? 'App\Repositories\\' . $ormBasePath
-            : 'Modules\\' . Str::studly($module) . '\Repositories' . $ormBasePath;
+            ? 'App\Repositories\\' . $ormFolder
+            : 'Modules\\' . Str::studly($module) . '\Repositories' . $ormFolder;
     }
 
     /**
@@ -111,7 +113,7 @@ class RepositoryCreator extends Creator
      */
     protected function getRepositoryPath($module, $ormFolder)
     {
-        if(! is_null($module)) {
+        if (! is_null($module)) {
             return base_path('modules/' . $module . '/Repositories\/' . $ormFolder);
         }
 

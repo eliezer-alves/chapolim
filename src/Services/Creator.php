@@ -35,7 +35,7 @@ class Creator
 
             foreach ($files as $file) {
                 $this->files->requireOnce($file);
-                if(basename($file, '.php') == ($className = $this->getClassName($name))){
+                if (basename($file, '.php') == ($className = $this->getClassName($name))) {
                     throw new InvalidArgumentException("A {$className} class already exists.");        
                 }
             }

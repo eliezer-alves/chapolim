@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 class ModelCreator extends Creator
 {
 
-    public function create($name, $module = null, $fillable = null)
+    public function create($name, $module = null, $fillable = null, $force = false)
     {
-        $this->ensureClassDoesntAlreadyExist($name, $this->getModelPath($module));
+        if (! $force)
+            $this->ensureClassDoesntAlreadyExist($name, $this->getModelPath($module));
         
         $fillable = $this->makeFillable($fillable);
         $stub = $this->getStub($fillable);
@@ -79,7 +80,7 @@ class ModelCreator extends Creator
     }
 
     /**
-     * Get the class name of a class name.
+     * Get the class namespace.
      *
      * @param  string  $name
      * @return string
@@ -108,7 +109,7 @@ class ModelCreator extends Creator
      */
     protected function getModelPath($module)
     {
-        if(! is_null($module)) {
+        if (! is_null($module)) {
             return base_path('modules/Models');
         }
 
@@ -133,7 +134,7 @@ class ModelCreator extends Creator
      */
     public function makeFillable($fillable)
     {
-        if(is_null($fillable)) return;
+        if (is_null($fillable)) return;
 
         $columnsFillable = '';
 

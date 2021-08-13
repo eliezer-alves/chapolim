@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Providers;
+namespace {{ namespace }};
 
-use App\Repositories\Contracts\{
+use {{ namespaceRepositoriesContracts }}\{
     //add-interface
 };
-use App\Repositories\Eloquent\{
+use {{ namespaceRepositories }}\{
     //add-repository
 };
 
 use Illuminate\Support\ServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider
+class {{ class }} extends ServiceProvider
 {
     /**
      * Register any Repository Patters.
@@ -20,7 +20,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //add-bind
+        //add-bindRepository
     }
 
     /**

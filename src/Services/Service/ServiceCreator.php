@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 class ServiceCreator extends Creator
 {
 
-    public function create($name, $module = null, $repository = null, $resource = false)
+    public function create($name, $module = null, $repository = null, $resource = false, $force = false)
     {
-        $this->ensureClassDoesntAlreadyExist($name, $this->getServicePath($module));
+        if (! $force)
+            $this->ensureClassDoesntAlreadyExist($name, $this->getServicePath($module));
         
         $stub = $this->getStub($repository, $resource);
         $path = $this->getPath($name, $this->getservicePath($module));
@@ -93,7 +94,7 @@ class ServiceCreator extends Creator
     }
 
     /**
-     * Get the class name of a class name.
+     * Get the class namespace.
      *
      * @param  string  $name
      * @return string
@@ -134,7 +135,7 @@ class ServiceCreator extends Creator
      */
     protected function getServicePath($module)
     {
-        if(! is_null($module)) {
+        if (! is_null($module)) {
             return base_path('modules/' . $module . '/Services');
         }
 

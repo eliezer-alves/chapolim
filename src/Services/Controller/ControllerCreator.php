@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 class ControllerCreator extends Creator
 {
 
-    public function create($name, $module = null, $service = null, $resource = false)
+    public function create($name, $module = null, $service = null, $resource = false, $force = false)
     {
-        $this->ensureClassDoesntAlreadyExist($name, $this->getControllerPath($module));
+        if (! $force)
+            $this->ensureClassDoesntAlreadyExist($name, $this->getControllerPath($module));
         
         $stub = $this->getStub($service, $resource);
         $path = $this->getPath($name, $this->getControllerPath($module));
@@ -93,7 +94,7 @@ class ControllerCreator extends Creator
     }
 
     /**
-     * Get the class name of a class name.
+     * Get the class namespace.
      *
      * @param  string  $name
      * @return string
@@ -112,7 +113,7 @@ class ControllerCreator extends Creator
      */
     protected function getControllerPath($module)
     {
-        if(! is_null($module)) {
+        if (! is_null($module)) {
             return base_path('modules/' . $module . '/Http/Controllers');
         }
 

@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 class RepositoryInterfaceCreator extends Creator
 {
 
-    public function create($name, $module = null)
+    public function create($name, $module = null, $force = false)
     {
-        $this->ensureClassDoesntAlreadyExist($name, $this->getRepositoryInterfacePath($module));        
+        if (! $force)
+            $this->ensureClassDoesntAlreadyExist($name, $this->getRepositoryInterfacePath($module));        
         
         $stub = $this->getStub();
         $path = $this->getPath($name, $this->getRepositoryInterfacePath($module));
@@ -59,7 +60,7 @@ class RepositoryInterfaceCreator extends Creator
     }
 
     /**
-     * Get the class name of a class name.
+     * Get the class namespace.
      *
      * @param  string  $name
      * @return string
@@ -80,7 +81,7 @@ class RepositoryInterfaceCreator extends Creator
      */
     protected function getRepositoryInterfacePath($module)
     {
-        if(! is_null($module)) {
+        if (! is_null($module)) {
             return base_path('modules/' . $module . '/Repositories/Contracts');
         }
 
