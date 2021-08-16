@@ -60,7 +60,7 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
     ...
     chapolim
-      chapolim:make        Generates project scaffold with all layers
+      chapolim:make             Generates project scaffold with all layers
       chapolim:make-controller  Create a new controller class with service layer
       chapolim:make-model       Create a new model class with table attribute and fillable attribute
       chapolim:make-repository  Create a new repository class
