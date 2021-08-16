@@ -110,7 +110,7 @@ class ModelCreator extends Creator
     protected function getModelPath($module)
     {
         if (! is_null($module)) {
-            return base_path('modules/Models');
+            return base_path('modules/' . $module . '/Models');
         }
 
         return app_path('Models');

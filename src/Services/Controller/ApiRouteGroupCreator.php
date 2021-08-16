@@ -3,6 +3,7 @@
 namespace Eliezer\Chapolim\Services\Controller;
 
 use Eliezer\Chapolim\Services\Creator;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
 class ApiRouteGroupCreator extends Creator
@@ -10,15 +11,22 @@ class ApiRouteGroupCreator extends Creator
 
     public function create($name, $module = null)
     {        
-        $path = $this->getPath('api', $this->getRoutePath($module));
-        $routeFile = $this->files->get($path);
+        $path = $this->getPath('api', $this->getRoutePath($module));        
         $stub = $this->getStub();
 
         $this->files->ensureDirectoryExists(dirname($path));
+        // dd($path);
+        if (! is_file($path)) {
+            $this->files->put($path, "<?php\n\nuse Illuminate\Support\Facades\Route;");
+        }
+
+        $routeFile = $this->files->get($path);
 
         $this->files->put(
             $path, $this->updateRouteFile($name, $module, $stub, $routeFile)
         );
+
+        Artisan::call("route:clear");
 
         return $path;
     }
@@ -46,7 +54,7 @@ class ApiRouteGroupCreator extends Creator
      */
     protected function updateRouteFile($name, $module, $stub, $routeFile)
     {
-        $prefix = strtolower(preg_replace(["/([A-Z]+)/", "/ ([A-Z]+)([A-Z][a-z])/"], ["-$1", "_$1_$2"], lcfirst($name)));
+        $prefix = strtolower(preg_replace(["/([A-Z]+)/", "/ ([A-Z]+)([A-Z][a-z])/"], ["-$1", "_$1_$2"], lcfirst(str_replace('Controller', '', $name))));
         $routeDescription = preg_replace(["/([A-Z]+)/", "/ ([A-Z]+)([A-Z][a-z])/"], [" $1", "_$1_$2"], $name);
         $useClass = 'use ' . $this->getNamespace($module) . '\\' . $this->getClassName($name) . ';';
 
@@ -66,7 +74,7 @@ class ApiRouteGroupCreator extends Creator
         );
 
         $routeFile = str_replace(
-            '<?php', "<?php\n\n$useClass", str_replace(
+            '<?php', "<?php\n$useClass", str_replace(
                 $useClass, '', str_replace(
                     $stub, '', $routeFile
                 )
