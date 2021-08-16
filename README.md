@@ -1,7 +1,15 @@
 <p align="center">
   <a href="https://nolock.com.br/" target="blank"><img src="https://i.imgur.com/2UgyvkB.png" width="300" alt="NOLOCK" /></a>
 </p>
-    
+
+## Observação
+No dia 15/08/2021 fiz uma atualização na estrutura do pacote e também adicionei duas features:
+ - possibilidade de criar arquivos de migrations;
+ - e trabalahar com o pacote em uma aplicação modularizada passando a flag `--module=`;
+Entretanto, ainda não tive tempo de documentar essas alterações, assim deixo essa nota.
+
+Atenciosamente, Elizer Alves
+
 # Chapolim
 Este projeto tem como objetivo fornecer alguns comandos adicionais à interface de linha de comando do Laravel, o Artisan, para manipular a estrutura de um projeto que utiliza as camadas de Serviço e Reopositório: Service Layer / Repository Pattern.
 
