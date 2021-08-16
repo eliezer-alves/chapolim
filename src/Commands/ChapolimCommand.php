@@ -51,7 +51,7 @@ class ChapolimCommand extends Command
         // dd($this->options());
         $this->fillable = $this->option('fillable');
         $this->resource = $this->option('resource');
-        $this->route = $this->option('resource');
+        $this->route = $this->option('route');
         if($this->all || ($this->option('model') && $this->option('controller') && $this->option('repository') && $this->option('service'))){
             $this->model = $this->argument('name');
             $this->controller = $this->argument('name') . 'Controller';
