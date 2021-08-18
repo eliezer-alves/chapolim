@@ -147,16 +147,17 @@ Os comandos `chapolim` serão listados da seguinte forma:
   Segue os detalhes do comando:
 
   <b>Description:</b>
-  Cria uma nova classe de controlador injetando uma classe de serviço
+  Create a new controller class by injecting a service class
 
   <b>Usage:</b>
   chapolim:make-controller [options] [--] <name>
 
   <b>Arguments:</b>
-    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
+    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;The name of the controller.</p>
 
-  <b>Options:</b>    
-    <p><i>-S, --service[=Service]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gera uma classe de controlador injetando uma classe de serviço específica.</p>
+  <b>Options:</b> 
+    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>   
+    <p><i>-S, --service[=SERVICE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The service to be injected into the controller.</p>
     <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Gera uma classe de serviço com métodos padrões.</p>
     <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Gera um grupo de rotas para o controlador em `app/routes/api.php`.</p>
 
