@@ -156,7 +156,7 @@ Os comandos `chapolim` serão listados da seguinte forma:
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;The name of the controller.</p>
 
   <b>Options:</b> 
-    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>   
+    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
     <p><i>-S, --service[=SERVICE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The service to be injected into the controller.</p>
     <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Gera uma classe de serviço com métodos padrões.</p>
     <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Gera um grupo de rotas para o controlador em `app/routes/api.php`.</p>
@@ -170,21 +170,23 @@ Os comandos `chapolim` serão listados da seguinte forma:
   Segue os detalhes do comando:
 
   <b>Description:</b>
-  Cria uma nova classe de controlador injetando uma classe de serviço
+  Generates project scaffold with all layers
 
   <b>Usage:</b>
   chapolim:make [options] [--] <name>
 
   <b>Arguments:</b>
-    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome base para as classes</p>
+    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;The base name of the all classes</p>
 
   <b>Options:</b>
-    <p><i>-m, --model</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gera uma classe Model a partir do <i>name</i>.</p>
-    <p><i>-c, --controller</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gera uma classe Controller a partir do <i>name</i>.</p>
-    <p><i>-R, --repository</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Gera uma classe Repository a partir do <i>name</i>.</p>
-    <p><i>-S, --service</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Gera uma classe Service a partir do <i>name</i>.</p>
-    <p><i>-a, --all</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gera as classes de todas as camadas a partir do <i>name</i>.</p>
-    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Gera as classes Controller e Service (caso especificadas nas options) com métodos padrões.</p>
-    <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Gera um grupo de rotas para o controlador em `app/routes/api.php`.</p>
-    <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;Gera a classe de modelo com o atributo <i>fillable</i> preenchido.</p>
+    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
+    <p><i>-m, --model</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Generates a model class.</p>
+    <p><i>-M, --migration</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Generates a migration class.</p>
+    <p><i>-c, --controller</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Generates a controller class.</p>
+    <p><i>-R, --repository</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Generates a repository class.</p>
+    <p><i>-S, --service</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Generates a service class.</p>
+    <p><i>-a, --all</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Generates the classes of all layers.</p>
+    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Generate a resource in controller and service classes</p>
+    <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Generates a group of routes referring to controller resources in the api route file.</p>
+    <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;The fillable attribute of the model.</p>
 

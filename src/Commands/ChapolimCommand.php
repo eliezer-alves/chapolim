@@ -14,7 +14,7 @@ class ChapolimCommand extends Command
      * @var string
      */
     protected $signature = 'chapolim:make
-        {name : The name of the controller.}
+        {name : The base name of the all classes.}
         {--module= : The application module.}
         {--m|model : Generates a model class.}
         {--M|migration : Generates a migration class.}
@@ -23,7 +23,7 @@ class ChapolimCommand extends Command
         {--S|service : Generates a service class.}
         {--a|all : Generates the classes of all layers}
         {--r|resource : Generate a resource in controller and service classes.}
-        {--route : Generates a group of routes referring to controller resources in the api route file}
+        {--route : Generates a group of routes referring to controller resources in the api route file.}
         {--fillable= : The fillable attribute of the model.}';
 
     /**
