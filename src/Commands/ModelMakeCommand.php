@@ -22,7 +22,7 @@ class ModelMakeCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a new model';
+    protected $description = 'Create a new model class with table attribute and fillable attribute';
 
     /**
      * The model creator instance.

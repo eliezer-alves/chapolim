@@ -69,7 +69,7 @@ Os comandos `chapolim` serão listados da seguinte forma:
     ...
     chapolim
       chapolim:make             Generates project scaffold with all layers
-      chapolim:make-controller  Create a new controller class with service layer
+      chapolim:make-controller  Create a new controller class by injecting a service class
       chapolim:make-model       Create a new model class with table attribute and fillable attribute
       chapolim:make-repository  Create a new repository class
       chapolim:make-service     Create a new service class
@@ -79,9 +79,9 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   ### chapolim:make-repository
   <a href="#sumário">Sumário</a><br/>
-  As classes geradas como o comando `chapolim:make-repository` serão criadas no diretório `app/Repositories/Eloquent`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando. Ainda assim, um outro diretório será criado `app/Repositories/Contracts`, esse diretório conterá as classes de interface das classes de repositório, pois estas nunca são injetadas diretamente.
-  Ademais, a primeira vez o o comando `chapolim:make-repository` for rodado será feito um processo de scafolding onde, além de serem criados os diretórios supracitados, serão criadas as classes `AbstractRepository` (contendo todos os métodos padrões de uma classe de repositório a qual será estendida por todas as outras classes de repositório), a sua interface `AbstractRepositoryInterface` e finalmente a classe `RepositoryServiceProvider`, essa última será a classe responsável por informar à aplicação a relação entre as classes de repositório e suas interfaces, sendo que é por conta disso que será possível utilizar as classes por meio das suas interfaces.
-  Assim, toda vez que for criada uma nova classe de repositório será também criada a sua interfece e a relação entre as duas será provida à aplicação por meio da `RepositoryServiceProvider`, sendo que isto é feito varrendo o diretório `app/Repositories/Eloquent` e reescrevendo o arquivo com as classes presentes nesse diretório. Ademais, é importante frizar que a classe `RepositoryServiceProvider` é automaticamente inserida em `config/app.php` mas pode ser que isso não aconteça então é importante validar se ela se encontra no <i>array</i> de <i>providers</i>.
+  As classes geradas como o comando `chapolim:make-repository` serão criadas no diretório `app/Repositories/Eloquent`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando. Ainda assim, um outro diretório será criado `app/Repositories/Contracts`, esse diretório conterá as classes de interface das classes de repositório, pois estas nunca são injetadas diretamente. Dessa forma, o comando pode receber o argumento `--orm` que serve para definir a pasta onde serão criados as classes de repositório dentro `app/Repositories`, assim, ao contrário de ser geradas na pasta pdrão 'Eloquent' você poderá especificar o nome da pasta.
+  Ademais, a primeira vez o o comando `chapolim:make-repository` for rodado será feito um processo de scafolding onde, além de serem criados os diretórios supracitados, serão criadas as classes `AbstractRepository` (contendo todos os métodos padrões de uma classe de repositório a qual será estendida por todas as outras classes de repositório), a sua interface `AbstractRepositoryInterface` e finalmente a classe `RepositoryServiceProvider`, essa última será a classe responsável por informar à aplicação a relação entre as classes de repositório e suas interfaces, sendo que é por conta disso que será possível utilizar as classes por meio das suas interfaces e será criada em `app/Providers`.
+  Assim, toda vez que for criada uma nova classe de repositório será também criada a sua interfece e a relação entre as duas será provida à aplicação por meio da `RepositoryServiceProvider`, sendo que isto é feito varrendo o diretório `app/Repositories/Eloquent` e reescrevendo o arquivo com as classes presentes nesse diretório. Entrtanto, caso você defina uma outra pasta para as classes de repositório por meio da option `--orm` o arquivo `RepositoryServiceProvider` será atualizado e conterá somente as classes que existirem nessa nova pasta que foi definida. Ademais, é importante frizar que a classe `RepositoryServiceProvider` é automaticamente inserida em `config/app.php` mas pode ser que isso não aconteça, então é importante validar se ela se encontra no <i>array</i> de <i>providers</i> do arquivo `config/app.php`.
 
   Segue os detalhes do comando:
 
@@ -95,8 +95,9 @@ Os comandos `chapolim` serão listados da seguinte forma:
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;O nome da Classe</p>
 
   <b>Options:</b>
-    <p><i>-m, --model[=Model]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Gera uma classe de repositório para uma <i>Model</i> fornecida.</p>
-    <p><i>-p, --path[=Path]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Gera uma classe de repositório em um diretório fornecido a partir de app/Repositories.</p>
+    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
+    <p><i>-m, --model[=Model]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The model to be injected into the repository.</p>
+    <p><i>--orm[=Folder]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Folder where the repository will be created - default Eloquent..</p>
 
   ### chapolim:make-service
   <a href="#sumário">Sumário</a><br/>

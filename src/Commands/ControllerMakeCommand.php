@@ -25,7 +25,7 @@ class ControllerMakeCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a new controller';
+    protected $description = 'Create a new controller class by injecting a service class';
 
     /**
      * The controller creator instance.
