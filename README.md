@@ -89,14 +89,14 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   Segue os detalhes do comando:
 
-  <b>Descrição:</b>
-  Cria uma nova classe repositório
+  <b>Description:</b>
+  Create a new repository
 
-  <b>Formato:</b>
+  <b>Usage:</b>
   chapolim:make-repository [options] [--] <name>
 
-  <b>Argumentos:</b>
-    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;O nome da Classe</p>
+  <b>Arguments:</b>
+    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;The name of the repository.</p>
 
   <b>Options:</b>
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
@@ -109,14 +109,14 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   Segue os detalhes do comando:
 
-  <b>Descrição:</b>
-  Cria uma nova classe de serviço
+  <b>Description:</b>
+  Create a new service
 
-  <b>Formato:</b>
+  <b>Usage:</b>
   chapolim:make-service [options] [--] <name>
 
-  <b>Argumentos:</b>
-    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
+  <b>Arguments:</b>
+    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;The name of the service.</p>
 
   <b>Options:</b>
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
@@ -128,30 +128,31 @@ Os comandos `chapolim` serão listados da seguinte forma:
   Por padrão o Artisan já possui comandos para a criação dos modelos, no entanto nesses comandos não é possível a especificação do <i>fillable</i> da classe, ou seja, não é possível especificar as colunas da tabela cujo o modelo representa. Dessa forma, o chapolim possui um comando para gerar os modelos com essa propriedade: `chapolim:make-model --fillable='username|email|password'`. Dessa maneira, como você pode notar você pode especificar seu <i>fillable</i> por meio da <i>option</i> `--fillable`.
   Segue os detalhes do comando:
 
-  <b>Descrição:</b>
-  Cria uma nova classe de modelo
+  <b>Description:</b>
+  Create a new model class with table attribute and fillable attribute
 
-  <b>Formato:</b>
+  <b>Usage:</b>
   chapolim:make-model [options] [--] <name>
 
-  <b>Argumentos:</b>
-    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
+  <b>Arguments:</b>
+    <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;The name of the model.</p>
 
   <b>Options:</b>
-    <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;Gera uma classe de modelo com o atributo <i>fillable</i> preenchido.</p>
+    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
+    <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;The fillable attribute of the model.</p>
 
   ### chapolim:make-controller
   <a href="#sumário">Sumário</a><br/>
   Da mesma forma que para os modelos, o Artisan já possui comandos para a criação dos controladores, entretanto não existe nesses comandos a opção de injetar uma classe de serviço. Dessa forma, o chapolim possui um comando para gerar controladores com classes de serviço: `chapolim:make-controller`. Assim, as classes geradas como o comando `chapolim:make-controller` serão criadas no diretório `app/Http/Controllers` e já virão com uma classe de serviço injetada, sendo que o nome desta pode ser especificado por meio da <i>option</i> `--service`. Nesse contexto, caso a classe de serviço não for especificada será injetada uma seguindo o pdrão do nome do controlador. Ademais, é possível gerar automáticamente um grupo de rotas do controlador em `app/routes/api.php` sendo que para isto basta especificar a <i>option</i> `--route`.
   Segue os detalhes do comando:
 
-  <b>Descrição:</b>
+  <b>Description:</b>
   Cria uma nova classe de controlador injetando uma classe de serviço
 
-  <b>Formato:</b>
+  <b>Usage:</b>
   chapolim:make-controller [options] [--] <name>
 
-  <b>Argumentos:</b>
+  <b>Arguments:</b>
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
 
   <b>Options:</b>    
@@ -167,13 +168,13 @@ Os comandos `chapolim` serão listados da seguinte forma:
   irá criar uma estrutura completa para o CRUD padrão de `Canetas`.
   Segue os detalhes do comando:
 
-  <b>Descrição:</b>
+  <b>Description:</b>
   Cria uma nova classe de controlador injetando uma classe de serviço
 
-  <b>Formato:</b>
+  <b>Usage:</b>
   chapolim:make [options] [--] <name>
 
-  <b>Argumentos:</b>
+  <b>Arguments:</b>
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome base para as classes</p>
 
   <b>Options:</b>
