@@ -100,12 +100,13 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   <b>Options:</b>
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
-    <p><i>-m, --model[=Model]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The model to be injected into the repository.</p>
-    <p><i>--orm[=Folder]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Folder where the repository will be created - default Eloquent..</p>
+    <p><i>-m, --model[=MODEL]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The model to be injected into the repository.</p>
+    <p><i>--orm[=ORM]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Folder where the repository will be created - default Eloquent..</p>
 
   ### chapolim:make-service
   <a href="#sumário">Sumário</a><br/>
-  As classes geradas como o comando `chapolim:make-service` serão criadas no diretório `app/Services`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando.
+  As classes geradas como o comando `chapolim:make-service` serão criadas no diretório `app/Services`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando. Nesse contexto, a classe de serviço mais completa que você poderá gerar conterá os métodos de um crud padrão (index, store, show, update e destroy), sendo que cada método já estará pronto para uso pois já estará delegando a responsabilidade para a classe de repositório, isso será possível especificando as `options` `--repository` e `--resource`.
+
   Segue os detalhes do comando:
 
   <b>Descrição:</b>
@@ -118,8 +119,9 @@ Os comandos `chapolim` serão listados da seguinte forma:
     <p><i>name</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;O nome da Classe</p>
 
   <b>Options:</b>
-    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Gera uma classe de serviço com métodos padrões.</p>
-    <p><i>-R, --repository[=Repository]</i>&emsp;&emsp;&emsp;Gera uma classe de serviço injetando uma classe de repositório.</p>
+    <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
+    <p><i>-R, --repository[=REPOSITORY]</i>&emsp;&emsp;&emsp;The repository class to be injected into the service.</p>
+    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Generate a resource service class.</p>
 
   ### chapolim:make-model
   <a href="#sumário">Sumário</a><br/>
