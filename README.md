@@ -23,6 +23,7 @@ Este projeto tem como objetivo fornecer alguns comandos adicionais à interface 
   <li>
     <a href="#uso"><b><span style="color: red">#</span> Uso</b></a>
     <ul style="list-style: none">
+      <li><a href="#module"><span style="color: red">#</span> --module</a></li>
       <li><a href="#chapolimmake-repository"><span style="color: red">#</span> chapolim:make-repository</a></li>
       <li><a href="#chapolimmake-service"><span style="color: red">#</span> chapolim:make-service</a></li>
       <li><a href="#chapolimmake-model"><span style="color: red">#</span> chapolim:make-model</a></li>
