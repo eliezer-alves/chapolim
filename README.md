@@ -77,6 +77,10 @@ Os comandos `chapolim` serão listados da seguinte forma:
   
   Dessa forma segue a descrição de cada comando.
 
+  ### --module
+  <a href="#sumário">Sumário</a><br/>
+  É normal que quando uma aplicação começa a crescer algumas reestruturações sejam feitas para que ela continue escalonável e organizadas. Nesse contexto, uma boa prática é a modularização do sistema, desacoplando funcionalidades e serviços em estruturas de pasta que chamamos de módulo. Nesse contexto, caso a sua aplicação esteje modularizada você nem sempre vai desejar criar suas classes dentro da `/app`. Dessa forma, a `option --module` serve para que suas classes sejam geradas no módulo especificado ao invés de serem criadas na `/app` e pode ser usada com qualquer comando abaixo.
+
   ### chapolim:make-repository
   <a href="#sumário">Sumário</a><br/>
   As classes geradas como o comando `chapolim:make-repository` serão criadas no diretório `app/Repositories/Eloquent`, esse diretório não existe por padrão, dessa forma ele será criado a primeira vez que for rodado o comando. Ainda assim, um outro diretório será criado `app/Repositories/Contracts`, esse diretório conterá as classes de interface das classes de repositório, pois estas nunca são injetadas diretamente. Dessa forma, o comando pode receber o argumento `--orm` que serve para definir a pasta onde serão criados as classes de repositório dentro `app/Repositories`, assim, ao contrário de ser geradas na pasta pdrão 'Eloquent' você poderá especificar o nome da pasta.
