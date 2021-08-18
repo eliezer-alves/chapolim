@@ -13,14 +13,6 @@ Este projeto tem como objetivo fornecer alguns comandos adicionais à interface 
 
 </br>
 
-## Observação
-No dia 15/08/2021 fiz uma atualização na estrutura do pacote e também adicionei duas features:
- - possibilidade de criar arquivos de migrations;
- - e trabalahar com o pacote em uma aplicação modularizada passando a flag `--module=`;
-Entretanto, ainda não tive tempo de documentar essas alterações, assim deixo essa nota.
-
-Atenciosamente, Elizer Alves
-
 ## Sumário
 <ol style="list-style: none"  style="color: black">
   <li><a href="#laravel"><b><span style="color: red">#</span> Laravel</a></b></li>
