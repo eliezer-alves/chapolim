@@ -8,7 +8,7 @@
 </p>
 
 <p>
-Este projeto tem como objetivo fornecer alguns comandos adicionais à interface de linha de comando do Laravel, o Artisan, para manipular a estrutura de um projeto que utiliza as camadas de Serviço e Reopositório: Service Layer / Repository Pattern. Dessa forma, é possível criar uma estrutura completa para gerenciar um modelo, criando e injetando as dependências das classes de todas as camadas: routes, Controllers, Service, Repository e Model com um único comando. Vale a pena dar uma conferida :)
+Este projeto tem como objetivo fornecer alguns comandos adicionais à interface de linha de comando do Laravel, o Artisan, para manipular a estrutura de um projeto que utiliza as camadas de Serviço e Reopositório: Service Layer / Repository Pattern. Dessa forma, é possível criar uma estrutura completa para gerenciar um modelo, criando e injetando as dependências das classes de todas as camadas: routes, Controllers, Service, Repository e Model com um único comando. Vale a pena dar uma conferida :smile:
 </p>
 
 </br>
