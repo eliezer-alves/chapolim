@@ -137,6 +137,7 @@ class ChapolimCommand extends Command
             Artisan::call("chapolim:make-controller", [
                 'name' => $this->controller,
                 '--module' => $this->module,
+                '-S' => $this->service,
                 '-r' => $this->resource,
                 '--route' => $this->route,
             ]);
