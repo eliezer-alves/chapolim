@@ -69,7 +69,7 @@ class ControllerMakeCommand extends Command
         $file = $this->creator->create($name, $module, $service, $resource);
         $this->line("<info>Controller created successfully:</info> {$file}");
 
-        if (! is_null($route)) {
+        if ($route) {
             $file = $this->apiRouteGroupCreator->create($name, $module);
             $this->line("<info>Route file updated successfully:</info> {$file}");
         }
