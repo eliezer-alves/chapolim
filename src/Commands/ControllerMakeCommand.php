@@ -17,8 +17,9 @@ class ControllerMakeCommand extends Command
         {name : The name of the controller.}
         {--module= : The application module.}
         {--S|service= : The service to be injected into the controller.}
+        {--r|resource : Generate a resource controller class.}
         {--route : Generate controller api routes.}
-        {--r|resource : Generate a resource controller class.}';
+        {--force : Force file creation.}';
 
     /**
      * The console command description.
@@ -65,8 +66,9 @@ class ControllerMakeCommand extends Command
         $service = $this->input->getOption('service');
         $route = $this->input->getOption('route') ?: false;
         $resource = $this->input->getOption('resource') ?: false;
+        $force = $this->input->getOption('force') ?: false;
 
-        $file = $this->creator->create($name, $module, $service, $resource);
+        $file = $this->creator->create($name, $module, $service, $resource, $force);
         $this->line("<info>Controller created successfully:</info> {$file}");
 
         if ($route) {
