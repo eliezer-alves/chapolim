@@ -16,7 +16,8 @@ class ServiceMakeCommand extends Command
         {name : The name of the service.}
         {--module= : The application module.}
         {--R|repository= : The repository to be injected into the service.}
-        {--r|resource : Generate a resource service class.}';
+        {--r|resource : Generate a resource service class.}
+        {--force : Force file creation.}';
 
     /**
      * The console command description.
@@ -54,8 +55,9 @@ class ServiceMakeCommand extends Command
         $module = $this->input->getOption('module'); 
         $repository = $this->input->getOption('repository');
         $resource = $this->input->getOption('resource') ?: false;
+        $force = $this->input->getOption('force') ?: false;
 
-        $file = $this->creator->create($name, $module, $repository, $resource);
+        $file = $this->creator->create($name, $module, $repository, $resource, $force);
         $this->line("<info>Service created successfully:</info> {$file}");
     }
 }

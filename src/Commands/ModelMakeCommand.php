@@ -52,7 +52,7 @@ class ModelMakeCommand extends Command
     {
         $name = trim($this->input->getArgument('name'));
         $module = $this->input->getOption('module'); 
-        $fillable = $this->input->getOption('fillable');        
+        $fillable = $this->input->getOption('fillable');
         $force = $this->input->getOption('force') ?: false;
 
         $file = $this->creator->create($name, $module, $fillable, $force);
