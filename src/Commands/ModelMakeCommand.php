@@ -15,7 +15,8 @@ class ModelMakeCommand extends Command
     protected $signature = 'chapolim:make-model
         {name : The name of the model.}
         {--module= : The application module.}
-        {--F|fillable= : The fillable attribute of the model.}';
+        {--F|fillable= : The fillable attribute of the model.}
+        {--force : Force file creation.}';
 
     /**
      * The console command description.
@@ -51,9 +52,10 @@ class ModelMakeCommand extends Command
     {
         $name = trim($this->input->getArgument('name'));
         $module = $this->input->getOption('module'); 
-        $fillable = $this->input->getOption('fillable');
+        $fillable = $this->input->getOption('fillable');        
+        $force = $this->input->getOption('force') ?: false;
 
-        $file = $this->creator->create($name, $module, $fillable);
+        $file = $this->creator->create($name, $module, $fillable, $force);
         $this->line("<info>Model created successfully:</info> {$file}");
     }
 }
