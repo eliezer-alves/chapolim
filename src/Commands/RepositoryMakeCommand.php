@@ -93,10 +93,10 @@ class RepositoryMakeCommand extends Command
             $this->line("<info>Abstract Repository created successfully:</info> {$file}");
         }
 
-        $file = $this->repositoryInterfaceCreator->create($interfaceName, $module, true);
+        $file = $this->repositoryInterfaceCreator->create($interfaceName, $module);
         $this->line("<info>Repository Interface created successfully:</info> {$file}");
 
-        $file = $this->creator->create($name, $module, $model, $ormFolder, true);
+        $file = $this->creator->create($name, $module, $model, $ormFolder);
         $this->line("<info>Repository created successfully:</info> {$file}");
 
         if (! File::exists($this->getProviderPath($module) . '/RepositoryServiceProvider.php')) {
