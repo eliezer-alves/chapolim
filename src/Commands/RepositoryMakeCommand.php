@@ -24,7 +24,8 @@ class RepositoryMakeCommand extends Command
         {name : The name of the repository.}
         {--module= : The application module.}
         {--m|model= : The model to be injected into the repository.}
-        {--orm= : folder where the repository will be created - default Eloquent.}';
+        {--orm= : folder where the repository will be created - default Eloquent.}
+        {--force : Force file creation.}';
 
     /**
      * The console command description.
@@ -87,16 +88,17 @@ class RepositoryMakeCommand extends Command
         $module = $this->input->getOption('module'); 
         $model = $this->input->getOption('model');
         $ormFolder = $this->input->getOption('orm');
+        $force = $this->input->getOption('force') ?: false;
 
         if (! File::exists($this->getRepositoryPath($module, $ormFolder) . '/AbstractRepository.php')) {
             $file = $this->repositoryLayerCreator->create($module, $ormFolder, true);
             $this->line("<info>Abstract Repository created successfully:</info> {$file}");
         }
 
-        $file = $this->repositoryInterfaceCreator->create($interfaceName, $module);
+        $file = $this->repositoryInterfaceCreator->create($interfaceName, $module, $force);
         $this->line("<info>Repository Interface created successfully:</info> {$file}");
 
-        $file = $this->creator->create($name, $module, $model, $ormFolder);
+        $file = $this->creator->create($name, $module, $model, $ormFolder, $force);
         $this->line("<info>Repository created successfully:</info> {$file}");
 
         if (! File::exists($this->getProviderPath($module) . '/RepositoryServiceProvider.php')) {
