@@ -101,8 +101,9 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   <b>Options:</b>
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
-    <p><i>-m, --model[=MODEL]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The model to be injected into the repository.</p>
-    <p><i>--orm[=ORM]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Folder where the repository will be created - default Eloquent..</p>
+    <p><i>-m, --model[=MODEL]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;The model to be injected into the repository.</p>
+    <p><i>--orm[=ORM]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Folder where the repository will be created - default Eloquent.</p>
+    <p><i>--force</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Force file creation.</p>
 
   ### chapolim:make-service
   <a href="#sumário">Sumário</a><br/>
@@ -121,8 +122,9 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   <b>Options:</b>
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
-    <p><i>-R, --repository[=REPOSITORY]</i>&emsp;&emsp;&emsp;The repository class to be injected into the service.</p>
-    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Generate a resource service class.</p>
+    <p><i>-R, --repository[=REPOSITORY]</i>&emsp;&emsp;The repository class to be injected into the service.</p>
+    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Generates a resource service class.</p>
+    <p><i>--force</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Force file creation.</p>
 
   ### chapolim:make-model
   <a href="#sumário">Sumário</a><br/>
@@ -141,6 +143,7 @@ Os comandos `chapolim` serão listados da seguinte forma:
   <b>Options:</b>
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
     <p><i>-F, --fillable[='column|column2']</i>&emsp;&nbsp;The fillable attribute of the model.</p>
+    <p><i>--force</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Force file creation.</p>
 
   ### chapolim:make-controller
   <a href="#sumário">Sumário</a><br/>
@@ -158,9 +161,10 @@ Os comandos `chapolim` serão listados da seguinte forma:
 
   <b>Options:</b> 
     <p><i>--module[=MODULE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The application module.</p>
-    <p><i>-S, --service[=SERVICE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;The service to be injected into the controller.</p>
-    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Gera uma classe de serviço com métodos padrões.</p>
-    <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Gera um grupo de rotas para o controlador em `app/routes/api.php`.</p>
+    <p><i>-S, --service[=SERVICE]</i>&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;The service to be injected into the controller.</p>
+    <p><i>-r, --resource</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Generates a resource service class.</p>
+    <p><i>--route</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Generates a group of routes referring to the controller in `app/routes/api.php`.</p>
+    <p><i>--force</i>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Force file creation.</p>
 
 
   ### chapolim:make
