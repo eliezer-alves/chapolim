@@ -136,6 +136,7 @@ class RepositoryMakeCommand extends Command
      */
     protected function getRepositoryPath($module, $ormFolder)
     {
+        $ormFolder = $ormFolder ?? 'Eloquent';
         if (! is_null($module)) {
             return base_path('modules/' . $module . '/Repositories\/' . $ormFolder);
         }
