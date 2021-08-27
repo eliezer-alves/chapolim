@@ -18,7 +18,8 @@ class MigrationMakeCommand extends Command
         {name : The name of the migration.}
         {--module= : The application module.}
         {--create : To be created.}
-        {--table= : The table to migrate.}';
+        {--table= : The table to migrate.}
+        {--force : Force file creation.}';
         // {--columns= : Table columns to migrate.}
 
     /**
@@ -57,6 +58,8 @@ class MigrationMakeCommand extends Command
         $module = $this->input->getOption('module'); 
         $table = $this->input->getOption('table');
         $create = $this->input->getOption('create') ?: false;
+        $force = $this->input->getOption('force') ?: false;
+
         
         // If no table was given as an option but a create option is given then we
         // will use the "create" option as the table name. This allows the devs
@@ -74,7 +77,7 @@ class MigrationMakeCommand extends Command
             [$table, $create] = TableGuesser::guess($name);
         }
 
-        $file = $this->creator->create($name, $module, $table, $create);
+        $file = $this->creator->create($name, $module, $table, $create, $force);
         $this->line("<info>Created Migration:</info> {$file}");
     }
 }
