@@ -24,7 +24,8 @@ class ChapolimCommand extends Command
         {--a|all : Generates the classes of all layers}
         {--r|resource : Generate a resource in controller and service classes.}
         {--route : Generates a group of routes referring to controller resources in the api route file.}
-        {--fillable= : The fillable attribute of the model.}';
+        {--fillable= : The fillable attribute of the model.}
+        {--force : Force file creation.}';
 
     /**
      * The console command description.
@@ -43,6 +44,7 @@ class ChapolimCommand extends Command
     protected $resource;
     protected $route;
     protected $fillable;
+    protected $force;
 
     /**
      * Create a new command instance.
@@ -62,18 +64,19 @@ class ChapolimCommand extends Command
 
     private function hydrator()
     {
-        // dd($this->options());
-        $this->module = $this->option('module');
+        $this->module   = $this->option('module');
         $this->fillable = $this->option('fillable');
         $this->resource = $this->option('resource');
-        $this->route = $this->option('route');
+        $this->route    = $this->option('route');
+        $this->force    = $this->input->getOption('force') ?: false;
+
         if ($this->all || !($this->option('model') && $this->option('migration') && $this->option('controller') && $this->option('repository') && $this->option('service'))) {
-            $this->model = Str::studly($this->argument('name'));
-            $this->migration = Str::studly('Create' . $this->argument('name') . 'Table');
-            $this->controller = Str::studly($this->argument('name') . 'Controller');
-            $this->repository = Str::studly($this->argument('name') . 'Repository');
-            $this->service = Str::studly($this->argument('name') . 'Service');
-            $this->all = true;
+            $this->model        = Str::studly($this->argument('name'));
+            $this->migration    = Str::studly('Create' . $this->argument('name') . 'Table');
+            $this->controller   = Str::studly($this->argument('name') . 'Controller');
+            $this->repository   = Str::studly($this->argument('name') . 'Repository');
+            $this->service      = Str::studly($this->argument('name') . 'Service');
+            $this->all          = true;
         } else {
             if ($this->option('model')) {
                 $this->model = Str::studly($this->argument('name'));
