@@ -109,6 +109,7 @@ class ChapolimCommand extends Command
                 'name' => $this->model,
                 '--module' => $this->module,
                 '--fillable' => $this->fillable,
+                '--force' => $this->force,
             ]);
             $this->info('Model created successfully.');
         }
