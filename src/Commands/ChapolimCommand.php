@@ -70,7 +70,7 @@ class ChapolimCommand extends Command
         $this->route    = $this->option('route');
         $this->force    = $this->input->getOption('force') ?: false;
 
-        if ($this->all || !($this->option('model') && $this->option('migration') && $this->option('controller') && $this->option('repository') && $this->option('service'))) {
+        if ($this->all || ($this->option('model') && $this->option('migration') && $this->option('controller') && $this->option('repository') && $this->option('service'))) {
             $this->model        = Str::studly($this->argument('name'));
             $this->migration    = Str::studly('Create' . $this->argument('name') . 'Table');
             $this->controller   = Str::studly($this->argument('name') . 'Controller');
