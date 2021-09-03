@@ -133,7 +133,8 @@ class ChapolimCommand extends Command
                 'name' => $this->service,
                 '--module' => $this->module,
                 '-R' => $this->repository,
-                '-r' => $this->resource,
+                '-r' => $this->resource,                
+                '--force' => $this->force,
             ]);
             $this->info('Service created successfully.');
         }
