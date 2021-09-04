@@ -124,7 +124,8 @@ class ChapolimCommand extends Command
             Artisan::call("chapolim:make-repository", [
                 'name' => $this->repository,
                 '--module' => $this->module,
-                '-m' => $this->model,
+                '-m' => $this->model,                
+                '--force' => $this->force,
             ]);
             $this->info('Repository created successfully.');
         }
@@ -133,7 +134,7 @@ class ChapolimCommand extends Command
                 'name' => $this->service,
                 '--module' => $this->module,
                 '-R' => $this->repository,
-                '-r' => $this->resource,                
+                '-r' => $this->resource,
                 '--force' => $this->force,
             ]);
             $this->info('Service created successfully.');
