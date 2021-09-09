@@ -68,9 +68,10 @@ class ChapolimCommand extends Command
         $this->fillable = $this->option('fillable');
         $this->resource = $this->option('resource');
         $this->route    = $this->option('route');
+        $this->all      = $this->option('all');
         $this->force    = $this->input->getOption('force') ?: false;
 
-        if ($this->all || ($this->option('model') && $this->option('migration') && $this->option('controller') && $this->option('repository') && $this->option('service'))) {
+        if ($this->all || (!$this->option('model') && !$this->option('migration') && !$this->option('controller') && !$this->option('repository') && !$this->option('service'))) {
             $this->model        = Str::studly($this->argument('name'));
             $this->migration    = Str::studly('Create' . $this->argument('name') . 'Table');
             $this->controller   = Str::studly($this->argument('name') . 'Controller');
@@ -146,6 +147,7 @@ class ChapolimCommand extends Command
                 '-S' => $this->service,
                 '-r' => $this->resource,
                 '--route' => $this->route,
+                '--force' => $this->force,
             ]);
             $this->info('Controller created successfully.');
             if ($this->route) {
