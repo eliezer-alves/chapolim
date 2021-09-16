@@ -3,7 +3,7 @@
 namespace {{ namespace }};
 
 use App\Models\{{ model }};
-use App\Repositories\Contracts\{{ interface }};
+use {{ interfaceNamespace }}\{{ interface }};
 
 class {{ class }} extends AbstractRepository implements {{ interface }}
 {

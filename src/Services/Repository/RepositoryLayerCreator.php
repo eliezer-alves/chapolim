@@ -109,7 +109,7 @@ class RepositoryLayerCreator extends Creator
     {
         return is_null($module)
             ? 'App\Repositories\\' . $ormFolder
-            : 'Modules\\' . Str::studly($module) . '\Repositories' . $ormFolder;
+            : 'Modules\\' . Str::studly($module) . '\Repositories\\' . $ormFolder;
     }
 
     /**

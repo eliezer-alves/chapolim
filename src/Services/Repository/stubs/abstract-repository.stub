@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use App\Repositories\Contracts\AbstractRepositoryInterface;
+use {{ interfaceNamespace }}\AbstractRepositoryInterface;
 
 abstract class AbstractRepository implements AbstractRepositoryInterface
 {

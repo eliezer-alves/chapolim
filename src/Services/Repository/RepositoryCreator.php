@@ -55,6 +55,12 @@ class RepositoryCreator extends Creator
      */
     protected function populateStub($name, $module, $stub, $model, $ormFolder)
     {
+
+        $stub = str_replace(
+            ['DummyInterfaceNamespace', '{{ interfaceNamespace }}', '{{interfaceNamespace}}'],
+            $this->getInterfaceNamespace($module), $stub
+        );
+
         $stub = str_replace(
             ['DummyNamespace', '{{ namespace }}', '{{namespace}}'],
             $this->getNamespace($module, $ormFolder), $stub
@@ -81,6 +87,19 @@ class RepositoryCreator extends Creator
     }
 
     /**
+     * Get the interface namespace.
+     *
+     * @param  string  $name
+     * @return string
+     */
+    protected function getInterfaceNamespace($module)
+    {
+        return is_null($module)
+            ? 'App\Repositories\Contracts'
+            : 'Modules\\' . Str::studly($module) . '\Repositories\Contracts';
+    }
+
+    /**
      * Get the class namespace.
      *
      * @param  string  $name
@@ -90,7 +109,7 @@ class RepositoryCreator extends Creator
     {
         return is_null($module)
             ? 'App\Repositories\\' . $ormFolder
-            : 'Modules\\' . Str::studly($module) . '\Repositories' . $ormFolder;
+            : 'Modules\\' . Str::studly($module) . '\Repositories\\' . $ormFolder;
     }
 
     /**
