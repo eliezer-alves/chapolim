@@ -67,6 +67,11 @@ class RepositoryCreator extends Creator
         );
 
         $stub = str_replace(
+            ['DummyModelNamespace', '{{ modelNamespace }}', '{{modelNamespace}}'],
+            $this->getModelNamespace($module), $stub
+        );
+
+        $stub = str_replace(
             ['DummyClass', '{{ class }}', '{{class}}'],
             $this->getClassName($name), $stub
         );
@@ -110,6 +115,19 @@ class RepositoryCreator extends Creator
         return is_null($module)
             ? 'App\Repositories\\' . $ormFolder
             : 'Modules\\' . Str::studly($module) . '\Repositories\\' . $ormFolder;
+    }
+
+    /**
+     * Get the model class namespace.
+     *
+     * @param  string  $name
+     * @return string
+     */
+    protected function getModelNamespace($module)
+    {
+        return is_null($module)
+            ? 'App\Models'
+            : 'Modules\\' . Str::studly($module) . '\Models';
     }
 
     /**
